@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Publication</div>
+  </div>
+
+  <HorizontalCard
+    title="Mapping fMRI voxel activations to CNN feature space for ease of categorization"
+    img="/ieee.webp"
+    desc=" Researching mathematical regression models to understand the highly overlapped representations in fMRI voxel activations."
+    url="https://ieeexplore.ieee.org/document/9288601"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Patent</div>
+  </div>
+
+  <HorizontalCard
+    title="Method and System for Smart Home Control in an Internet of Things Environment"
+    img="/stwallpaper.webp"
+    desc="US Patent filed on Jul. 6, 2022"
+    url="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20230082852"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Projects</div>
+  </div>
+
+  <HorizontalCard
+    title="Own your terms"
+    img="/openai.webp"
+    desc="Chrome extension that instantly detects potential red flags in any document, such as a rental lease, terms and conditions, when signing them in any website. Secured 3rd Place at USC Viterbi Hacks for best social impact and UI design."
+    url="https://github.com/srikrishna98/Own-Your-Terms/tree/main"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="SmartThings Application for Galaxy WearOS."
+    img="/stwatch.webp"
+    desc="Android based companion app to control IoT devices in SmartHome."
+    url="https://www.youtube.com/watch?v=4T7keqc0-jE"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="PMNet - Predicting pathloss using DeepLabv3+ based Segmentation model"
+    img="/heatmap.webp"
+    desc="This repository is like a scratchpad initial version of the work I carry out at Wireless Devices & Systems Lab."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+</BaseLayout>

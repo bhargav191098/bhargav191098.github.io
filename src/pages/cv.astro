@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">About me</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    Approaching the field of Engineering with a blend of child-like curiosity and unwavering seriousness, I am committed to both the wonder of discovery and the rigor of research.
+I have held a steadfast belief in the transformative power of technology. Where it may not inherently present itself as a panacea, I maintain that it is the prerogative of Engineers to adeptly "engineer" it towards more optimal avenues. Even as a Software Developer at Samsung, I tried to bring in the practice of research and extensively innovated on ways to increase the device command execution time by trying out various methods. So to summarize, I love Research, Android, Deep Learning, Machine Learning and AI.
+
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Master of Science, Computer Science"
+      subtitle="[Jan 2023] to [Dec 2024] at [University of Southern California], [Los Angeles], [USA]"
+    />
+    <TimeLineElement
+      title="Bachelor of Engineering, Computer Science"
+      subtitle="[Aug 2016] to [Apr 2020] at [Anna University - CEG Campus ], [Chennai], [India]"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Research Assistant, Computer Vision"
+      subtitle="From [Apr 2023] to Present at [Wireless Devices and Systems Lab], [Los Angeles], [USA]"
+    >
+    Researching CNN based Segmentation models (DeepLabV3+) to compute signal pathloss, cutting down prediction time by
+    12 hours by incorporating transfer learning while maintaining generalizability across urban maps.
+
+    </TimeLineElement>
+    <TimeLineElement
+      title="Software Developer, SmartThings - Android Systems"
+      subtitle="From [Jan 2021] to [Dec 2022] at [Samsung Research], [Bangalore], [India]"
+    >
+      Worked on the SmartThings Applications team - Wear OS. Developed multiple device detail pages and BT-HID quick control library using Kotlin. Innovated on two A1 grade patents.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Summer Intern, Bixby Voice Intelligence"
+      subtitle="From [May 2019] to [Jul 2019] at [Samsung Research], [Bangalore], [India]"
+    >
+    Extracted multi-intent statements from user utterances by automating command tokenization using spaCy NLP, Flask, and
+    JavaScript, allowing users to utter naturally lengthy sentences with Bixby device.    
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/BYESN2CP9363" target="_blank"><u>Coursera Deep Learning Certification</u></a>
+    </li>
+    <li>
+      <a href="https://drive.google.com/file/d/1_ANTezB8zYgCbbnBAedminyOQzUSXkxB/view?usp=sharing" target="_blank"><u>Android Coroutines</u></a>
+    </li>
+    <li>
+      <a href="https://drive.google.com/file/d/1YH3J10DCA_eF_0_O0cBPD_yNWulEiaCy/view?usp=sharing" target="_blank"><u>Clean Architecture & SOLID principles for Android</u></a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Computer Vision</li>
+    <li>Pytorch</li>
+    <li>Tensorflow</li>
+    <li>Android</li>
+    <li>KotlinRx</li>
+    <li>Java</li>
+    <li>Python</li>
+    <li>Latex</li>
+    <li>Machine Learning</li>
+    <li>Deep Learning</li>
+    <li>Perfetto</li>
+    <li>C/C++</li>
+  </ul>
+</BaseLayout>

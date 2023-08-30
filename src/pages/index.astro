@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Bhargav Krishnamurthy</div>
+    <div class="text-3xl py-3 font-bold">Graduate Student at USC!</div>
+    <div class="py-2">
+      <text class="text-lg">
+        Passionate about the realms of Machine Learning, Android, and Artificial Intelligence, I find immense joy in the art of crafting scalable software systems.
+<br>
+I had the privilege of spending two years at Samsung Research, Bangalore, contributing to the SmartThings Application on WearOS Galaxy watches. I've been fortunate to play a part in innovations that have led to the recent commercialization of several patents and novel features.
+<br>
+My current journey involves pursuing a master's degree in Computer Science at USC, where I am wholeheartedly dedicated to deepening my understanding of AI systems. 
+<br>
+I also work as Research Assistant at the ML division of WiDeS lab. My focus revolves around the exploration of how CNNs can be harnessed to predict signal pathloss in the dynamic landscape of urban areas.
+<br>
+Inspired by <a href="https://vinija.ai" target="_blank" class="font-bold">vinija.ai</a>, I’d like to write about the things I learn through courses and through the RA gig! This blog is merely a reflection of that.
+
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://www.linkedin.com/in/bhargav-krishnamurthy/" target="_blank"> Let's connect!</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + post.slug}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>
