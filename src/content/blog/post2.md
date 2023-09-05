@@ -77,7 +77,7 @@ Another trick up the sleeve here. Notice in w3, it is difference between iCaptur
         iCapturePoints = pow(5,iCapturedPairs);
         theyCapturePoints = pow(5,theyCapturedPairs);
 
-So there we go, we have an agent that (a) makes clever choices (b) has admissible heuristic. Can we now christen him an AI agent?
+So there we go, we have an agent that (a) makes clever choices (b) has admissible heuristic. Can we now christen it an AI agent? ;)
 
 
 This homework was done as a part of the CSCI-561: Foundations of AI curriculum taught by Prof. Laurent Itti! Took this course in Spring '23 at USC with some amazing people! Shoutout to Cibi,Sriki and Ananya for being amazing study buddies! I had a lot to learn from the curriculum as well as these people! 
