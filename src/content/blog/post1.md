@@ -1,7 +1,7 @@
 ---
 title: "Why the blog?"
 description: "Rationale behind the blog"
-pubDate: "Sep 10 2022"
+pubDate: "Sep 03 2023"
 heroImage: "/usc_wallpaper.webp"
 ---
 
@@ -10,6 +10,8 @@ I believe writing is thinking clearly. As humans, we have tendencies to believe 
 I'm currently pursuing my MS in Computer Science. I have taken up Foundations of AI and Analysis of Algorithms till now. I'm taking DSCI 552:Machine Learning and CSCI 585: Database Systems this semester and I believe I'll write about the concept I pick up at these classes.
 
 I'm also a Research Assistant at the Wireless Devices and Systems Lab. It is really exciting to work on Computer Vision models. Some days I get to read classical papers and implement them using Pytorch! I'll also write about these experiences on this blog!
+
+I'm also a devoted cinephile! I thoroughly enjoy watching remarkable movies that strike a chord with me, and occasionally, I might share a post or two about the films that captivate me.
 
 Cheers and Fight on!
 
