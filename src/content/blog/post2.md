@@ -6,7 +6,11 @@ heroImage: "/DeepBlue.webp"
 ---
 
 
-Let's approach Artificial Intelligence from the very foundation, shall we? We'll build a program - an agent and add attributes to the agent that makes it intelligent - step by step. We'll take the game of Pente. Check this [blog](https://pente.org/help/helpWindow.jsp?file=playGameRules) for rules.
+Let's approach Artificial Intelligence from the very foundation, shall we? 
+
+We'll build a program - an agent and add attributes to the agent that makes it intelligent - step by step. We'll take the game of Pente. Check this [blog](https://pente.org/help/helpWindow.jsp?file=playGameRules) for rules.
+
+Why choose gaming scenarios for AI? The correlation between AI's involvement in gaming and AI research is reminiscent of the symbiotic relationship between the automotive industry and Formula 1 racing. Many innovations observed in the automotive sector trace their origins back to the competitive world of F1 racing. Similarly, achieving victories over humans in games devised by humans proved to be a brilliant avenue for showcasing the computational prowess underpinning AI research, catalyzing numerous innovations and groundbreaking developments.
 
 
 Okay, so we need something that effectively uses its compute power to look up information in the future. The process should be deterministic and admissible. Sounds simple right? As an agent, I should make an acceptable, possible move, and with the same policy evaluate all possible moves that the opponent could make and on and on and on - till I reach a condition where either I win or the opponent wins. All this for a single move I make. There can be multiple moves I could make at a stage. All of this would lead to a search space whose navigational complexity would be of O(b^m) complexity, where b is the branching factor and m is the depth till the termination condition. Well, the branching factor b is no small value. It could be as high as 100 and the depth could be a very high value as well. Humanity could cease to exist by the time my agent coughs up a possible move. I need to make the agent better. The rest of the blog will outline how.
