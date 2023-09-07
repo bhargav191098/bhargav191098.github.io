@@ -87,7 +87,7 @@ Found an interesting answer at [StackOverflow](https://stackoverflow.com/questio
 
 
 We can check if the data has been put into the db using DataGrip: 
-![Data grip interface](/public/DataGripTable.png)
+![Data grip interface](/DataGripTable.png)
 
 Cool, now we can get input from the user - the abstract of their idea. We need to build embedding vectors out of the abstract, query the vector db for the abstracts that are similar to the input abstract. To begin with, we shall start with the exact match query using cosine similarity : 
 
@@ -115,7 +115,7 @@ Thus we'll be indexing with 10000/1000 = 10 for the list parameter and for the p
 
 Viola!
 
-![Output](/public/FinalOutput.png)
+![Output](/FinalOutput.png)
 
 
 Alright, setting aside the acceleration in time, the style of writing pretty much documented how I approached coding this small project. Do reach out to me if you have any doubts or any other exciting idea to build on top of this!
