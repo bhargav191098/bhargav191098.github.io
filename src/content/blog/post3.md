@@ -113,7 +113,7 @@ Quoting from the repository :
 
 Thus we'll be indexing with 10000/1000 = 10 for the list parameter and for the probe parameter we'll stick with 100.
 
-Viola!
+Voila!
 
 ![Output](/FinalOutput.png)
 
