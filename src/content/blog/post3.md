@@ -4,12 +4,11 @@ description: "Exploring postgres vector databases :)"
 pubDate: "Sep 06 2023"
 heroImage: "/postgres.webp"
 ---
-I got to be honest here. That last blog? Whew, that was very time-consuming. So, I'm switching things up a bit with this post. We're going full-on stream of consciousness mode here. 🧠<br>
+I got to be honest here. That last blog? Whew, that was very time-consuming. So, I'm switching things up a bit with this post. We're going full-on stream of consciousness mode here. 🧠 As I go along, I want a tablulate the errors I make and how I fixed them. This is how I've been approaching development for sometime now!<br>
 I've got this super cool idea for a pet project, and I'm gonna lay it all out as I code away. Fingers crossed it won't eat up as much of my time as that last one did! 😅🕒
 <br>
 __arXiv__ is a treasure trove of incredible papers, and the best part? It's open to everyone! No hidden papers, no paywalls, it's all out there for anyone to read. Recently, I stumbled upon this Kaggle dataset that contains all the metadata for every paper on arXiv. Now, what I'm cooking up here is a little project to process that Kaggle dataset, whip up some embedding vectors, and then use the Postgres Vector DB to index these vectors.
 Imagine someone wanting to do a literature survey or check how novel their idea is. This project could make those tasks a walk in the park. So, buckle up, we're diving in! 🚀
-
 
 ### Let's process the data : 
 The first task would be to process the dataset. It is available over [here](https://www.kaggle.com/datasets/Cornell-University/arxiv). I downloaded the data in .json format! Time to process the json with the good old Pandas!
@@ -19,7 +18,11 @@ The first task would be to process the dataset. It is available over [here](http
             print(json_data.head)
 
 Oof! Some __trailing data issue__ while reading the json file.
-Okay so the dataset has '\n' in the abstract, title sections. When pandas tries to read this json format, it encounters end of line and maybe a trailing issue. Better to fix it with __lines = True__ parameter in pd.read_json() function. Now this might take a long time - even the metadata is bulky!
+Okay so the dataset has '\n' in the abstract, title sections. When pandas tries to read this json format, it encounters end of line and maybe a trailing issue. Better to fix it with __lines = True__ parameter in pd.read_json() function. Now this might take a long time - even the metadata is bulky!<br>
+<br>__Bug #1:__ <br>
+| <span style = "color:red">Error</span> | <span style = "color:green">Fix</span> |
+| :--- | :----------- |
+| ValueError: Trailing data | json_data = pd.read_json('arxiv.json',lines=True) |
 
 ### Embeddings :
 The next task to find a proper embeddings for the dataset. Now for the utility of the project, it is best if we embed the abstract of each json entry. For this task, we use the __Sentence Transformer__ library.
@@ -37,7 +40,13 @@ Great we have the embeddings! If we output the size of the vector, you'll notice
 In the background, I have added a code to read the json file : retrieve all the necessary information, take the abstract, call the get_text_embedding function and finally save all these information in an numpy array! It is a huge dataset! Better to have a backup. Can't be computing vectors each and every time.
 ### PostgreSQL:
 Let us setup PostgreSQL db on __Amazon RDS__. One can set it up locally as well. I wanted to try out the Amazon RDS. So going ahead with it. 
-After a lot of clicks, the RDS database is up and running. Made a mistake of not setting up the inbound request in EC2 properly. Was not able to access the DB from my system for quiet a while xD. Installed __DataGrip__ locally to connect to the PostgreSQL server.
+After a lot of clicks, the RDS database is up and running. Made a mistake of not setting up the inbound request in EC2 properly. Was not able to access the DB from my system for quiet a while xD.<br>
+<br>__Bug #2:__ <br>
+| <span style = "color:red">Error</span> | <span style = "color:green">Fix</span> |
+| :--- | :----------- |
+| Inbound rule for security group not set on EC2 instance | Follow this [blog](https://saturncloud.io/blog/how-to-add-a-https-inbound-rule-to-a-security-group-on-an-amazon-aws-ec2-instance/) to set appropriate inbound rules|
+
+Installed __DataGrip__ locally to connect to the PostgreSQL server.
 Yay! Now to the querys.
 
         def createDatabase(conn):
@@ -51,10 +60,14 @@ Yay! Now to the querys.
             table_create_query = """ create table arxivVectorDB(paperId text PRIMARY KEY,title text, authors text, abstract text,embedding vector(384)) """
             cursor.execute(table_create_query)
             cursor.close()
-Another error. The vector is an extension in the Postgres environment. It needs to be added. With rds, I don't have to download but if one is trying this locally, I think we need to do a git based installation and use the following command : 
+Another error. Encountered a "vector" does not exist error.
 
-        cursor.execute("CREATE EXTENSION IF NOT EXISTS vector")
-    
+The vector is an extension in the Postgres environment. It needs to be added as extension. With rds, I don't have to download but if one is trying this locally, I think we need to do a git based installation and use the create extension query.
+<br>__Bug #3:__<br>
+| <span style = "color:red">Error</span> | <span style = "color:green">Fix</span> |
+| :--- | :----------- |
+| type "vector" does not exist |  cursor.execute("CREATE EXTENSION IF NOT EXISTS vector") |
+         
 Note that these commands can be run from DataGrip as well. Very convenient. Moving on.
 Now that we have processed the data from json file, we can create a list of tuples and these can be inserted as a batch into the db using the following code : 
 
@@ -66,25 +79,10 @@ Now that we have processed the data from json file, we can create a list of tupl
             print("Executed the batch command!! \n")
             cursor.close()
     
-Yet another issue : So the vector datatype is an extension for postgre. The psycopg2 interface needs an extra level of adapters for the numpy arrays we use for storing the embeddings.
-Found an interesting answer at [StackOverflow](https://stackoverflow.com/questions/39564755/programmingerror-psycopg2-programmingerror-cant-adapt-type-numpy-ndarray) and used the boilerplate function code to fix the issue : 
-            
-            def addapt_boilerplate():
-                def addapt_numpy_float64(numpy_float64):
-                    return AsIs(numpy_float64)
-
-                def addapt_numpy_int64(numpy_int64):
-                    return AsIs(numpy_int64)
-
-                def addapt_numpy_array(numpy_array):
-                    return AsIs(tuple(numpy_array))
-
-                register_adapter(np.float64, addapt_numpy_float64)
-                register_adapter(np.int64, addapt_numpy_int64)
-                register_adapter(np.float32, addapt_numpy_float32)
-                register_adapter(np.int32, addapt_numpy_int32)
-                register_adapter(np.ndarray, addapt_numpy_array)
-
+<br>__Bug #4:__<br>
+| <span style = "color:red">Error</span> | <span style = "color:green">Fix</span> |
+| :--- | :----------- |
+|pyscopg-2 programming error - can't adapt type numpy.| Issue on the pyscopg2 interface. Need to add adapters. Check [this](https://stackoverflow.com/questions/39564755/programmingerror-psycopg2-programmingerror-cant-adapt-type-numpy-ndarray) out. |
 
 We can check if the data has been put into the db using DataGrip: 
 ![Data grip interface](/DataGripTable.png)
