@@ -2,7 +2,7 @@
 title: "Law of large numbers"
 description: "Yes, the very very basic but beautiful law"
 pubDate: "Sep 25 2023"
-heroImage: "/public/cover_post4.jpg"
+heroImage: "/cover_post4.jpg"
 ---
 
 Today, I want to talk about this very fundamental but <i>beautiful</i> law.
@@ -30,7 +30,7 @@ We'll pull out random samples from the normal distribution.
 
 In the above code: we sample from a normal distribution with <b>mean 0</b> and <b>standard deviation 0.1.</b> The expected value of a random variable following Normal distribution is technically its mean which we have set as 0. So if we keep taking samples from this normal distribution and take its mean, as the number of samples increases, it should converge to 0.
 
-![normal distribution](/public/normal_distribution.png)
+![normal distribution](/normal_distribution.png)
 
 Voila!! The sample converges around the expected value. <br>
 
@@ -80,13 +80,13 @@ Cool, the E(X) is sorted. Let's sample from a die and steadily increase the samp
 
 Let's plot these results.
 
-![Mean of samples](/public/law_of_large_numbers_excpected_value.png)
+![Mean of samples](/law_of_large_numbers_excpected_value.png)
 
 ## Extension: 
 
 This law can be extended to another cool result. Okay so theoretically what is the probability of getting a 4 or 6 on the top face of the die? 1/6, right? No matter how many times we do it, right? Let's keep that knowledge aside for sometime and define the probability empirically ie. as we see the favourable outcomes, we update the probability based on history.Back to sampling and checking for convergence, baby!
 
-![p hat of getting 4 and 6](/public/getting_4_6_with_labels.png)
+![p hat of getting 4 and 6](/getting_4_6_with_labels.png)
 
 Ooh! The probability of getting a 4 and probability of getting a 6 is converging onto 1/6. It smells like Law of large numbers. Let me draw some bridges for this. First off, the underlying distribution of the die experiment is called Bernoulli Distribution. This distribution is a special case of the normal distribution with n=1. A single trail experiment! We took a roundabout way of getting there and your high school math teacher was smart!  By sampling, we saw $\hat{p}$, the empirical probability converge onto the probability we know as 1/6! 
 
