@@ -12,7 +12,7 @@ It essentially deals with the results of sampling large amounts of data repeated
 
 ## What is sampling?
 
-Consider you buy one of those Trader Joe's multiflavoured cheesecake. Each time you try one section of the cheesecake, you can form a different opinion. You base all your opinions on the slice you picked but is that slice a true representative of the entire cheesecake? This process of taking a sample of the cheesecake is essentially sampling ;) You base your opinions on the sample you just took. How much this slice varies from the entire cheesecake constitutes the sampling error. We'll take about sampling error and some curious tests in another blog.
+Consider you buy one of those Trader Joe's multiflavoured cheesecake. Each time you try one section of the cheesecake, you can form a different opinion. You base all your opinions on the slice you picked but is that slice a true representative of the entire cheesecake? This process of taking a sample of the cheesecake is essentially sampling ;) You base your opinions on the sample you just took. How much this slice varies from the entire cheesecake constitutes the sampling error. We'll take about sampling error and some curious tests in another blog post.
 
 ## Sampling in action : 
 
