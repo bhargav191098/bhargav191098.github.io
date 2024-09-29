@@ -16,7 +16,7 @@ In my own ways, I want to contribute to the software that keeps the scaling poss
 So I'd simply have a model, metal access thanks to RunPod, and myself. Let's see what happens. Hope this post contains a bunch of follow up articles in which I slowly take up problem statements incrementally and keep solving.
 
 <figure>
-<img src="/public/llmInferenceSD.png">
+<img src="/llmInferenceSD.png">
 <figcaption style="text-align:center;font-weight:bold;"> Mind map for learning LLM Inference </figcaption>
 </figure>
 
