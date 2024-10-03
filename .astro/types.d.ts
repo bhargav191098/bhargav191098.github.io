@@ -203,49 +203,56 @@ declare module 'astro:content' {
   slug: "post1";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post2.md": {
 	id: "post2.md";
   slug: "post2";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post3.md": {
 	id: "post3.md";
   slug: "post3";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post4.md": {
 	id: "post4.md";
   slug: "post4";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post5.md": {
 	id: "post5.md";
   slug: "post5";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post6.md": {
 	id: "post6.md";
   slug: "post6";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "post7.md": {
 	id: "post7.md";
   slug: "post7";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
+} & { render(): Render[".md"] };
+"post8.md": {
+	id: "post8.md";
+  slug: "post8";
+  body: string;
+  collection: "blog";
+  data: any
 } & { render(): Render[".md"] };
 };
 "store": {
@@ -254,21 +261,21 @@ declare module 'astro:content' {
   slug: "item1";
   body: string;
   collection: "store";
-  data: InferEntrySchema<"store">
+  data: any
 } & { render(): Render[".md"] };
 "item2.md": {
 	id: "item2.md";
   slug: "item2";
   body: string;
   collection: "store";
-  data: InferEntrySchema<"store">
+  data: any
 } & { render(): Render[".md"] };
 "item3.md": {
 	id: "item3.md";
   slug: "item3";
   body: string;
   collection: "store";
-  data: InferEntrySchema<"store">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -280,5 +287,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }
