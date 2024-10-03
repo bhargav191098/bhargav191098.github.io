@@ -1,7 +1,7 @@
 ---
 title: "Man, metal and models - 3: Streaming tokens"
 description: "Stream 'em"
-pubDate: "Oct 1, 2024"
+pubDate: "Oct 2, 2024"
 heroImage: "/gpumeme.png"
 ---
 
