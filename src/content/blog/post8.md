@@ -7,7 +7,7 @@ heroImage: "/gpumeme.png"
 
 ### The world of token streaming
 
-I think I first saw tokens being streamed in a GPT-2 demo by Ilya. It was not as accurate as the beast we have now, but OpenAI cracked these chat completions as a long time ago. In fact, there is some thing like OpenAPI Compatible server that people can configure their LLM online setup such that they can use the OpenAI library. For instance, let's take TogetherAI :
+I think I first saw tokens being streamed in a GPT-2 demo by Ilya. It was not as accurate as the beast we have now, but OpenAI cracked these chat completions a long time ago. In fact, there is some thing like OpenAPI Compatible server that people can configure their LLM online setup such that they can use the OpenAI library. For instance, let's take TogetherAI :
 
 ![together](/openAICompatible.png)
 
