@@ -7,7 +7,7 @@ heroImage: "/gpumeme.png"
 
 ### The world of token streaming
 
-I think I first saw tokens being streamed in a GPT-2 demo by Ilya. It was not as accurate as the beast we have now, but OpenAI cracked these chat completions as a long time ago. In fact, there is some thing like OpenAPI Compatible server that people can configure their LLM online setup such that they can use the OpenAI library. For instance, let's take a platform I'm a big fan of - TogetherAI :
+I think I first saw tokens being streamed in a GPT-2 demo by Ilya. It was not as accurate as the beast we have now, but OpenAI cracked these chat completions as a long time ago. In fact, there is some thing like OpenAPI Compatible server that people can configure their LLM online setup such that they can use the OpenAI library. For instance, let's take TogetherAI :
 
 ![together](/openAICompatible.png)
 
@@ -27,7 +27,7 @@ Before I dig into how to do this, I want to clarify something. vLLM comes in two
 
 ### The beauty of Async Engine:
 
-Okay I think I am ready to start fanboying about vLLM at this point. Here's what I did to understand their platform : Cloned up the vllm-project and digged in a depth-first fashion into the AsyncEngine to understand how it works. The Async Engine is the one that best suited what I wanted to do.
+Okay I think I am ready to start fanboying about vLLM at this point. Here's what I did to understand their platform : Cloned up the vllm-project and digged in a depth-first fashion. The Async Engine is the one that best suited what I wanted to do.
 
 Inference classically works in two steps - <br>
 1. Prefill : We basically take the freshly arrived prompt. We do the tokenization process, populate the intermediate state values we need ( remember the key,value from the Llama diagram?) - basically setup the stage for the first token generation. The beauty of the this phase is that you have all the input tokens present, so you can parallelize the shit of this stage and utilize GPU compute for this. <br>
